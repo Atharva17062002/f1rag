@@ -34,7 +34,7 @@ const Home = () => {
         {noMessages ? (
           <>
             <p className="starter-text">
-              Welcome to F1 GPT! Ask me anything about Formula 1 and I'll do my
+              Welcome to F1 GPT! Ask me anything about Formula 1 and I will do my
               best to help you.
             </p>
             <br />
