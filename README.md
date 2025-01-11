@@ -1,40 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# F1GPT - A RAG-based Conversational AI
 
-## Getting Started
+F1GPT is a **Retrieval-Augmented Generation (RAG)** application that leverages **OpenAI API**, **Astra DB**, and **Next.js** to provide dynamic and contextually relevant answers from a rich knowledge base. It combines the power of generative AI with a robust retrieval mechanism to enhance responses with factual data from custom datasets.
 
-First, run the development server:
+## 🚀 Features
+- **OpenAI API** for generating natural language responses.
+- **Astra DB** (Cassandra-based) as a scalable, cloud-native NoSQL database for storing and retrieving documents.
+- **Next.js** for building a responsive, fast, and SEO-friendly frontend.
+- Retrieval-Augmented Generation (RAG) pipeline for improving response accuracy by grounding the model's output with real-world data.
 
+## 🛠️ Tech Stack
+- **Next.js** - React framework for server-side rendering and static site generation.
+- **OpenAI API** - For generating conversational responses.
+- **Astra DB** - Managed Cassandra database for storing indexed documents.
+- **LangChain** - To orchestrate the RAG pipeline.
+- **Pinecone** or **Weaviate** (optional) - For vector-based document retrieval.
+
+---
+
+## 🧩 How It Works
+1. **User Query:** A user submits a query through the F1GPT frontend.
+2. **Document Retrieval:** The query is matched against the document index stored in Astra DB.
+3. **Augmented Query:** Relevant documents are retrieved and passed as context to the OpenAI API.
+4. **Response Generation:** The OpenAI API generates a response grounded in the retrieved documents.
+5. **Final Output:** The user receives an accurate and contextual response.
+
+---
+
+## 🏗️ Installation
+### Prerequisites
+- Node.js (v16 or later)
+- Astra DB account
+- OpenAI API key
+
+### 1️⃣ Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Atharva17062002/F1GPT.git
+cd F1GPT
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 3️⃣ Set Up Environment Variables
+Create a `.env` file in the root directory with the following variables:
+```env
+ASTRA_DB_NAMESPACE = "Your namespace"
+ASTRA_DB_COLLECTION = "Your db collection name"
+ASTRA_DB_API_ENDPOINT = "Your Astra DB Endpoint"
+ASTRA_DB_APPLICATION_TOKEN = "Your astra db application token"
+OPEN_AI_API_KEY = "Your Open AI Key"
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 4️⃣ Start the Development Server
+```bash
+npm run dev
+```
+Access the app at `http://localhost:3000`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧪 Seeding Data
+Configure URLs in LoadDb.ts and run the following command to create embedding and save to db:
+```bash
+npm run seed
+```
+---
 
-## Learn More
+## ⚙️ Deployment
+You can deploy the app on **Vercel** for serverless hosting:
+1. Connect your GitHub repo to Vercel.
+2. Set environment variables in the Vercel dashboard.
+3. Deploy the app.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## 🤝 Contributing
+Contributions are welcome! Please open an issue or submit a pull request to improve the project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📧 Contact
+For any queries or support, reach out to [17.atharva@gmail.com].
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
