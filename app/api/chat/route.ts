@@ -8,6 +8,9 @@ const {
   ASTRA_DB_API_ENDPOINT,
   ASTRA_DB_APPLICATION_TOKEN,
   OPEN_AI_API_KEY,
+  ASTRA_DB_COLLECTION_RS,
+  ASTRA_DB_API_ENDPOINT_RS,
+  ASTRA_DB_APPLICATION_TOKEN_RS
 } = process.env;
 
 const openai = new OpenAI({ apiKey: OPEN_AI_API_KEY });
@@ -50,7 +53,7 @@ export async function POST(req: Request) {
     const template = {
       role: "system",
       content: `
-        You are an AI assistant who knows everything about UFC. Use the below context to augment what you know about UFC. The context will provide you with the most recent page data from wikipedia and others.
+        You are an AI assistant who knows everything about Formula 1. Use the below context to augment what you know about Formula 1. The context will provide you with the most recent page data from wikipedia and others.
         If the context doesn't include the information you need answer based on your existing knowledge and don't mention the source of your information or what the context does or doesn't include.
         Format response using markdown where applicable and don't return images.
         ---------------

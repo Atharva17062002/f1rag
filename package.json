@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "seed": "tsx ./scripts/loadDb.ts",
+    "seed2": "tsx ./scripts/loadDbPDF.ts",
     "lint": "next lint"
   },
   "dependencies": {
